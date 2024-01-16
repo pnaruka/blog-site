@@ -1,0 +1,6 @@
+
+.login-form, .login-header{
+    justify-content: center;
+    display: flex;
+    padding: 20px 50px 20px 25px;
+}
