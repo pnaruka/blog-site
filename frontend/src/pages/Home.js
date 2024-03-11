@@ -14,6 +14,7 @@ const Home = () => {
   useEffect(() => {
     if (user)
       fetchBlogs('/blog/show_blogs');
+    console.log(blogs);
   }, [user]);
 
   //console.log(user);

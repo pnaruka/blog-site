@@ -39,7 +39,11 @@ BlogRouter.get('/my_blogs', async (request, response) => {
 
 BlogRouter.get('/show_blogs', async (request, response) => {
     try {
-        const userBlogs = await blogModel.show_blogs();
+        const userId = request.user._id.toString();
+        //console.log(typeof userId);
+        const userBlogs = await blogModel.show_blogs()
+                                       .then((res) => res.filter((blog)=> blog.userId !== userId));
+        //console.log(typeof userBlogs[0].userId);
         return response.status(201).json({ total: userBlogs.length, results: userBlogs });
     }
     catch (error) {
