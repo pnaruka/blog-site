@@ -9,6 +9,7 @@ import CreateBlog from './pages/CreateBlog.js';
 import { useAuthContext } from './hooks/useAuthContext.js';
 import ViewBlog from './components/ViewBlog.js';
 import EditBlog from './pages/EditBlog.js';
+import Profile from './pages/Profile.js';
 
 const App = () => {
     const {user} = useAuthContext();
@@ -25,6 +26,7 @@ const App = () => {
                     <Route path='/user/create_blog' element={user?(<CreateBlog/>):(<Navigate to="/user/login" />)} />
                     <Route path='/user/view_blog/:id' element={user?(<ViewBlog/>):(<Navigate to="/user/login" />)} />
                     <Route path='/user/edit_blog/:id' element={user?(<EditBlog/>):(<Navigate to="/user/login" />)} />
+                    <Route path='user/profile' element={user?(<Profile/>):(<Navigate to="/user/login" />)}/>
                 </Routes>
             </div>
         </BrowserRouter>

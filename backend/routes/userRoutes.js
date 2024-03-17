@@ -29,7 +29,7 @@ UserRouter.post('/login', async (request,response)=>{
         //console.log("Login Route: ",request.body);
         const user = await userModel.login(request.body);
         const token = createToken(user._id)
-        return response.status(201).json({_id:user._id,email:user.email,token});
+        return response.status(201).json({_id:user._id,username:user.username,email:user.email,token});
     }
     catch(error){
         console.log(error);
